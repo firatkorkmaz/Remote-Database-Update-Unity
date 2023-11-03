@@ -1,0 +1,76 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>Records</title>
+</head>  
+<body>  
+  
+<a href="/">Go Back to Home Page</a>
+
+<a href="/tables/records"><h3>Records</h3></a>
+
+<table border=3>
+
+    <thead>
+		<td>ID</td>
+		<td>Name</td>
+		<td>Age</td>
+		<td>Gender</td>
+		<td>Country</td>
+		<td>Job</td>
+		<td>E-mail</td>
+		<td>Phone</td>
+    </thead>  
+      
+    {% for row in rows %}
+      
+        <tr>
+			<td>{{row["CU_ID"]}}</td>
+			<td>{{row["NAME"]}}</td>
+			<td>{{row["AGE"]}}</td>
+			<td>{{row["GENDER"]}}</td>
+			<td>{{row["COUNTRY"]}}</td>
+			<td>{{row["JOB"]}}</td>
+			<td>{{row["EMAIL"]}}</td>
+			<td>{{row["PHONE"]}}</td>
+			
+			<td><form action="/viewupdate" method="post">
+			<input type="hidden" value={{row["CU_ID"]}} name="cu_id">
+			<input type="hidden" value="" name="name"/>
+			<input type="hidden" value="" name="age"/>
+			<input type="hidden" value="" name="gender"/>
+			<input type="hidden" value="" name="country"/>
+			<input type="hidden" value="" name="job"/>
+			<input type="hidden" value="" name="email"/>
+			<input type="hidden" value="" name="phone"/>
+			<input type="submit" value="UPD"/></form></td>
+			
+			<td><form action="/delete" method="post">
+			<input type="hidden" value={{row["CU_ID"]}} name="cu_id">
+			<input type="submit" value="DEL"></form></td>
+        </tr>
+				
+    {% endfor %}
+	
+	<tr>
+		<form action="/insert" method="post">
+		<td><input type="hidden" name="cu_id"/></td>
+		<td><input type="text" name="name"/></td>
+		<td><input type="text" name="age"/></td>
+		<td><input type="text" name="gender"/></td>
+		<td><input type="text" name="country"/></td>
+		<td><input type="text" name="job"/></td>
+		<td><input type="text" name="email"/></td>
+		<td><input type="text" name="phone"/></td>
+		<td><input type="submit" value="Insert"></td>
+		</form>
+	</tr>
+	
+</table>
+
+<br>  
+<a href="/">Go Back to Home Page</a>
+<br><br>
+  
+</body>  
+</html> 

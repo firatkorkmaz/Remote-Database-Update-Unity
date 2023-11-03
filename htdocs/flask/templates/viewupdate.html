@@ -1,0 +1,93 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>User Update</title>
+</head>  
+<body>  
+  
+<a href="/tables/records">Go Back to the Records</a>
+
+<h3><u>User Information</u></h3>
+
+<h4>User Update:</h4>
+
+<table border=3>
+
+    <thead>  
+		<td>ID</td>
+		<td>Name</td>
+		<td>Age</td>
+		<td>Gender</td>
+		<td>Country</td>
+		<td>Job</td>
+		<td>E-Mail</td>
+		<td>Phone</td>
+    </thead>  
+            
+	<tr>  
+		<td>{{rws[0]["CU_ID"]}}</td>
+		<td>{{rws[0]["NAME"]}}</td>
+		<td>{{rws[0]["AGE"]}}</td>
+		<td>{{rws[0]["GENDER"]}}</td>
+		<td>{{rws[0]["COUNTRY"]}}</td>
+		<td>{{rws[0]["JOB"]}}</td>
+		<td>{{rws[0]["EMAIL"]}}</td>
+		<td>{{rws[0]["PHONE"]}}</td>
+	</tr>
+
+	<tr>
+		<form action="/viewupdate" method="post">
+		<td><input type="hidden" value={{rws[0]["CU_ID"]}} name="cu_id"/></td>
+		<td><input type="text" name="name"/></td>
+		<td><input type="text" name="age"/></td>
+		<td><input type="text" name="gender"/></td>
+		<td><input type="text" name="country"/></td>
+		<td><input type="text" name="job"/></td>
+		<td><input type="text" name="email"/></td>
+		<td><input type="text" name="phone"/></td>
+		<td><input type="submit" value="Update"></td>
+		</form>
+	</tr>
+	
+</table>
+
+<br>
+
+<h4>Registers</h4>
+
+<table border=3>
+
+    <thead>
+		<td>ID</td>
+		<td>Name</td>
+		<td>Age</td>
+		<td>Gender</td>
+		<td>Country</td>
+		<td>Job</td>
+		<td>E-Mail</td>
+		<td>Phone</td>
+    </thead>
+
+    {% for row in rows %}
+
+        <tr>
+			<td>{{row["CU_ID"]}}</td>
+			<td>{{row["NAME"]}}</td>
+			<td>{{row["AGE"]}}</td>
+			<td>{{row["GENDER"]}}</td>
+			<td>{{row["COUNTRY"]}}</td>
+			<td>{{row["JOB"]}}</td>
+			<td>{{row["EMAIL"]}}</td>
+			<td>{{row["PHONE"]}}</td>
+        </tr>
+
+    {% endfor %}
+	
+</table>
+
+<br>
+<a href="/tables/records">Go Back to the Records</a>
+<br><br>
+  
+</body>  
+</html> 
